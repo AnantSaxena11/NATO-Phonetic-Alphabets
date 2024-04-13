@@ -1,27 +1,40 @@
-student_dict = {
-    "student": ["Angela", "James", "Lily"], 
-    "score": [56, 76, 98]
-}
+# student_dict = {
+#     "student" : ["Angela","James","Lily"],
+#     "score" : [56,76,98]
+# }
 
-#Looping through dictionaries:
-for (key, value) in student_dict.items():
-    #Access key and value
-    pass
+# #how to loop throught the keys of the dictionary 
 
-import pandas
-student_data_frame = pandas.DataFrame(student_dict)
+# # for key,value in student_dict.items():
+# #     print(value)
 
-#Loop through rows of a data frame
-for (index, row) in student_data_frame.iterrows():
-    #Access index and row
-    #Access row.student or row.score
-    pass
 
-# Keyword Method with iterrows()
-# {new_key:new_value for (index, row) in df.iterrows()}
+# import pandas as pd
 
-#TODO 1. Create a dictionary in this format:
-{"A": "Alfa", "B": "Bravo"}
+# data = pd.DataFrame(student_dict)
 
-#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+# # print(data)
+
+# #loop throught the dataframe using same method before 
+
+# # for key,value in data.items():
+# #     print(value)
+
+
+# for (index,row ) in data.iterrows():
+#     if(row.student == "Angela"):
+#         print(row.score)
+
+import pandas as pd
+
+data = pd.read_csv("dataset.csv")
+
+letters = {row['letter']: row['code'] for index, row in data.iterrows()}
+
+name = input("ENter your Name ")
+name = name.upper()
+result = []
+for letter in name:
+    result.append(letters[letter])
+print(result)
 
